@@ -11,6 +11,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     // TODO: implement build
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
         // This is the theme of your application.
@@ -53,55 +54,81 @@ class _MyHomePageState extends State {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-    return Scaffold(
-        appBar: AppBar(
-          backgroundColor: Colors.red,
-          title: Text("Hello world "),
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+        home: Scaffold(
+      backgroundColor: Colors.teal,
+      body: SafeArea(
+        child: Center(
+          child: Container(
+
+            child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+
+              CircleAvatar(
+                radius: 50.0,
+                backgroundImage: NetworkImage(
+                    "https://scontent-mxp1-1.xx.fbcdn.net/v/t1.0-9/49095508_2013770535365137_3095290824653537280_o.jpg?_nc_cat=105&ccb=2&_nc_sid=09cbfe&_nc_ohc=gjr9kbw9ndcAX9MI53y&_nc_ht=scontent-mxp1-1.xx&oh=4e18431dfd99476f264cc3ba4cb489c7&oe=602E0F5C"),
+              ),
+              Text("Ahmed Youssef",
+                  style: TextStyle(
+                      fontFamily: "Pacifico",
+                      fontSize: 40.0,
+                      color: Colors.white)),
+              Text(
+                "FLUTTER DEVELOPER",
+                style: TextStyle(
+                    fontFamily: "SourceSansPro",
+                    fontSize: 20.0,
+                    letterSpacing: 2.5,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.teal.shade100),
+              ),
+              SizedBox(
+                height: 20.0,
+                width: 150.0,
+                child: Divider(
+                  color: Colors.teal.shade100,
+                ),
+              ),
+              Card(
+                margin: EdgeInsets.symmetric(vertical: 10.0, horizontal: 25.0),
+                color: Colors.white,
+                child: ListTile(
+                    leading: Icon(
+                      Icons.phone,
+                      color: Colors.teal,
+                    ),
+                    title: Text(
+                      "+20 1058956116",
+                      style: TextStyle(
+                          fontFamily: "SourceSansPro",
+                          fontSize: 20.0,
+                          color: Colors.teal.shade900),
+                    )),
+              ),
+
+              Card(
+                margin: EdgeInsets.symmetric(vertical: 10.0, horizontal: 25.0),
+                color: Colors.white,
+                child: ListTile(
+                    leading: Icon(
+                      Icons.email,
+                      color: Colors.teal,
+                    ),
+                    title: Text(
+                      "Ahmed@gmail.com",
+                      style: TextStyle(
+                          fontFamily: "SourceSansPro",
+                          fontSize: 20.0,
+                          color: Colors.teal.shade900),
+                    )),
+              )
+            ]),
+          ),
         ),
-        body: Container(
-          width: MediaQuery.of(context).size.width,
-
-
-          child: Row(
-
-              mainAxisSize: MainAxisSize.max,
-
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
-                Expanded(
-                  flex: 1,
-                  child: Container(
-                    width:100.0,
-
-                    color: Colors.blueAccent,
-                      child: Center(child: Text("Container 1"))
-                  ),
-                ),
-                Expanded(
-                  flex: 1,
-                  child: Container(
-                    width: 100.0,
-                    color: Colors.redAccent,
-                    child: Center(child: Text("Container 2")),
-                  ),
-                ),
-                SizedBox(height: 20.0),
-
-                Expanded(
-                  flex: 1,
-                  child: Container(
-                      width: 100.0,
-                    color: Colors.blue,
-                      child: Center(child: Text("Container 3"))
-                  ),
-                )
-              ],
-
-
-
-
-            ),
-
-        ));
+      ),
+    ));
   }
 }

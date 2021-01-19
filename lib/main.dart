@@ -59,34 +59,49 @@ class _MyHomePageState extends State {
           title: Text("Hello world "),
         ),
         body: Container(
-          child: Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
+          width: MediaQuery.of(context).size.width,
+
+
+          child: Row(
+
+              mainAxisSize: MainAxisSize.max,
+
+              crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                Text("This is demo for Flutter app",
-                    style: Theme.of(context).textTheme.bodyText1),
-                Text("$x",
-                    style: Theme.of(context).textTheme.bodyText1),
-                SizedBox(height: 40.0)
-                ,RawMaterialButton(
-                  fillColor: Colors.red,
-                  child: Text(
-                    "hello world",
-                    style: TextStyle(fontSize: 20.0, color: Colors.white),
+                Expanded(
+                  flex: 1,
+                  child: Container(
+                    width:100.0,
+
+                    color: Colors.blueAccent,
+                      child: Center(child: Text("Container 1"))
                   ),
-
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(50.0)),
-                  constraints: BoxConstraints.tightFor(width: 100.0, height: 90.0),
-                  onPressed: (){setState(() {
-                    x++;
-
-                  });
-                  },
                 ),
+                Expanded(
+                  flex: 1,
+                  child: Container(
+                    width: 100.0,
+                    color: Colors.redAccent,
+                    child: Center(child: Text("Container 2")),
+                  ),
+                ),
+                SizedBox(height: 20.0),
+
+                Expanded(
+                  flex: 1,
+                  child: Container(
+                      width: 100.0,
+                    color: Colors.blue,
+                      child: Center(child: Text("Container 3"))
+                  ),
+                )
               ],
+
+
+
+
             ),
-          ),
+
         ));
   }
 }

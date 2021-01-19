@@ -11,6 +11,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     // TODO: implement build
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
         // This is the theme of your application.
@@ -54,39 +55,21 @@ class _MyHomePageState extends State {
   Widget build(BuildContext context) {
     // TODO: implement build
     return Scaffold(
+      backgroundColor: Colors.redAccent,
         appBar: AppBar(
-          backgroundColor: Colors.red,
-          title: Text("Hello world "),
+          backgroundColor: Colors.red[500],
+          elevation: 30.0,
+          title: Text("I Am Rich"),
         ),
-        body: Container(
-          child: Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text("This is demo for Flutter app",
-                    style: Theme.of(context).textTheme.bodyText1),
-                Text("$x",
-                    style: Theme.of(context).textTheme.bodyText1),
-                SizedBox(height: 40.0)
-                ,RawMaterialButton(
-                  fillColor: Colors.red,
-                  child: Text(
-                    "hello world",
-                    style: TextStyle(fontSize: 20.0, color: Colors.white),
-                  ),
+        body: Center(
 
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(50.0)),
-                  constraints: BoxConstraints.tightFor(width: 100.0, height: 90.0),
-                  onPressed: (){setState(() {
-                    x++;
-
-                  });
-                  },
-                ),
-              ],
+          child: Container(
+            child: Image (
+              image: AssetImage("images/diamond.png"),
             ),
           ),
-        ));
+        )
+
+    );
   }
 }

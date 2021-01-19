@@ -1,3 +1,4 @@
+import 'dart:ffi';
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
@@ -54,39 +55,48 @@ class _MyHomePageState extends State {
   Widget build(BuildContext context) {
     // TODO: implement build
     return Scaffold(
-        appBar: AppBar(
-          backgroundColor: Colors.red,
-          title: Text("Hello world "),
-        ),
-        body: Container(
-          child: Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text("This is demo for Flutter app",
-                    style: Theme.of(context).textTheme.bodyText1),
-                Text("$x",
-                    style: Theme.of(context).textTheme.bodyText1),
-                SizedBox(height: 40.0)
-                ,RawMaterialButton(
-                  fillColor: Colors.red,
-                  child: Text(
-                    "hello world",
-                    style: TextStyle(fontSize: 20.0, color: Colors.white),
-                  ),
-
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(50.0)),
-                  constraints: BoxConstraints.tightFor(width: 100.0, height: 90.0),
-                  onPressed: (){setState(() {
-                    x++;
-
-                  });
-                  },
+      backgroundColor: Colors.teal,
+      body: SafeArea(
+        child: Container(
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+                Container(
+                  width: 100.0,
+                  color: Colors.redAccent,
                 ),
-              ],
-            ),
+              Container(
+                width: 100.0,
+
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Container(
+                      width: 100.0,
+                      height: 100.0,
+                      color: Colors.yellow,
+                    ),
+                    Container(
+                      width: 100.0,
+                      height: 100.0,
+                      color: Colors.yellow.withOpacity(0.5),
+                    )
+                  ],
+                )
+                ,
+              ),
+              Container(
+                width: 100.0,
+                color: Colors.blue,
+              )
+
+                ]
+              )
+
           ),
-        ));
+        ),
+
+    );
   }
 }
